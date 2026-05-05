@@ -16,6 +16,9 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.error('MongoDB Connection Error:', err));
 
 // Routes
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/habits', require('./routes/habitRoutes'));
+
 app.get('/', (req, res) => {
   res.send('Tandem Tracker API is running!');
 });
